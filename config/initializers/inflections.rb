@@ -13,3 +13,7 @@
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular('aplicacion', 'aplicaciones')
+  inflect.irregular('sesion', 'sesiones')
+end
