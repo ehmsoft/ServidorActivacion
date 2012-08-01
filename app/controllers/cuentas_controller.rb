@@ -94,7 +94,9 @@ class CuentasController < ApplicationController
     @cuenta = Cuenta.where(correo: params[:correo], aplicacion_id: params[:aplicacion_id]).first
     if @cuenta.pendiente > 0
       @cuenta.pendiente = @cuenta.pendiente - 1
-      @cuenta.save
+      if @cuenta.save
+        Registro.create(cuenta_id: @cuenta.id, hora: DateTime.now(), pendiente: @cuenta.pendiente, total: @cuenta.total)
+      end
     else
       @cuenta = nil
     end
@@ -107,7 +109,9 @@ class CuentasController < ApplicationController
     @cuenta = Cuenta.where(correo: params[:correo], aplicacion_id: params[:aplicacion_id]).first
     if @cuenta.pendiente < @cuenta.total
       @cuenta.pendiente = @cuenta.pendiente + 1
-      @cuenta.save
+      if @cuenta.save
+        Registro.create(cuenta_id: @cuenta.id, hora: DateTime.now(), pendiente: @cuenta.pendiente, total: @cuenta.total)
+      end
     else
       @cuenta = nil
     end
