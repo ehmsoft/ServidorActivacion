@@ -1,4 +1,6 @@
 ServidorActi::Application.routes.draw do
+  resources :registros
+
   resources :cuentas
 
   resources :aplicaciones

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cuenta:</b>
+  <%= @registro.cuenta_id %>
+</p>
+
+<p>
+  <b>Hora:</b>
+  <%= @registro.hora %>
+</p>
+
+<p>
+  <b>Pendiente:</b>
+  <%= @registro.pendiente %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @registro.total %>
+</p>
+
+
+<%= link_to 'Edit', edit_registro_path(@registro) %> |
+<%= link_to 'Back', registros_path %>
