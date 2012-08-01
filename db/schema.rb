@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731222439) do
+ActiveRecord::Schema.define(:version => 20120801003122) do
+
+  create_table "aplicaciones", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cuentas", :force => true do |t|
+    t.string   "correo"
+    t.integer  "pendiente"
+    t.integer  "total"
+    t.integer  "aplicacion_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "cuentas", ["aplicacion_id"], :name => "index_cuentas_on_aplicacion_id"
+  add_index "cuentas", ["correo"], :name => "index_cuentas_on_correo"
 
   create_table "usuarios", :force => true do |t|
     t.string   "nombre"

@@ -17,7 +17,7 @@ class SesionesController < ApplicationController
     else
       flash.now[:error] = 'Correo o contrasena invalida'
       respond_to do |format|
-        format.html { render 'new'}
+        format.html { render 'new' }
         format.json { render json: {success: false, status: 403} }
       end
     end

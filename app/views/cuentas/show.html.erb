@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Correo:</b>
+  <%= @cuenta.correo %>
+</p>
+
+<p>
+  <b>Pendiente:</b>
+  <%= @cuenta.pendiente %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @cuenta.total %>
+</p>
+
+<p>
+  <b>Aplicacion:</b>
+  <%= @cuenta.aplicacion_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_cuenta_path(@cuenta) %> |
+<%= link_to 'Back', cuentas_path %>

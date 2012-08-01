@@ -1,4 +1,8 @@
 ServidorActi::Application.routes.draw do
+  resources :cuentas
+
+  resources :aplicaciones
+
   resources :usuarios
   
   resources :sesiones, only: [:new, :create, :destroy]

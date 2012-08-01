@@ -1,0 +1,29 @@
+<h1>Listing cuentas</h1>
+
+<table>
+  <tr>
+    <th>Correo</th>
+    <th>Pendiente</th>
+    <th>Total</th>
+    <th>Aplicacion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cuentas.each do |cuenta| %>
+  <tr>
+    <td><%= cuenta.correo %></td>
+    <td><%= cuenta.pendiente %></td>
+    <td><%= cuenta.total %></td>
+    <td><%= cuenta.aplicacion_id %></td>
+    <td><%= link_to 'Show', cuenta %></td>
+    <td><%= link_to 'Edit', edit_cuenta_path(cuenta) %></td>
+    <td><%= link_to 'Destroy', cuenta, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cuenta', new_cuenta_path %>

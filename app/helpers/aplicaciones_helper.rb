@@ -1,0 +1,2 @@
+module AplicacionesHelper
+end

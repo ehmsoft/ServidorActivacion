@@ -16,4 +16,5 @@
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular('aplicacion', 'aplicaciones')
   inflect.irregular('sesion', 'sesiones')
+  inflect.irregular('cuenta', 'cuentas')
 end
