@@ -81,4 +81,38 @@ class CuentasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  def informacion
+    @cuenta = Cuenta.where(correo: params[:correo], aplicacion_id: params[:aplicacion_id]).first
+    respond_to do |format|
+      format.xml {render 'activar'}
+    end
+  end
+  
+  def activar
+    @cuenta = Cuenta.where(correo: params[:correo], aplicacion_id: params[:aplicacion_id]).first
+    if @cuenta.pendiente > 0
+      @cuenta.pendiente = @cuenta.pendiente - 1
+      @cuenta.save
+    else
+      @cuenta = nil
+    end
+    respond_to do |format|
+      format.xml #activar.xml.builder
+    end
+  end
+  
+  def desactivar
+    @cuenta = Cuenta.where(correo: params[:correo], aplicacion_id: params[:aplicacion_id]).first
+    if @cuenta.pendiente < @cuenta.total
+      @cuenta.pendiente = @cuenta.pendiente + 1
+      @cuenta.save
+    else
+      @cuenta = nil
+    end
+    respond_to do |format|
+      format.xml {render 'activar'}
+    end
+  end
 end

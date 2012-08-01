@@ -12,6 +12,10 @@ ServidorActi::Application.routes.draw do
   match '/signin', to: 'sesiones#new' #Login html
   match '/login', to: 'sesiones#create' #Para hacer login desde Ext
   match '/signout', to: 'sesiones#destroy', via: :delete
+  
+  match '/activar', to: 'cuentas#activar'
+  match '/desactivar', to: 'cuentas#desactivar'
+  match '/informacion', to: 'cuentas#informacion'
 # The priority is based upon order of creation:
 # first created -> highest priority.
 
