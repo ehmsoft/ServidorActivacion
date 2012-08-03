@@ -13,7 +13,7 @@
 
 <% @registros.each do |registro| %>
   <tr>
-    <td><%= registro.cuenta_id %></td>
+    <td><%= registro.cuenta.correo %></td>
     <td><%= registro.hora %></td>
     <td><%= registro.pendiente %></td>
     <td><%= registro.total %></td>

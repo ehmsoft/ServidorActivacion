@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :cuenta_id %><br />
-    <%= f.number_field :cuenta_id %>
+    <% opciones = Cuenta.all.map { |cuenta| ["#{cuenta.correo} | #{cuenta.aplicacion.nombre}", cuenta.id] }%>
+    <%= f.select(:cuenta_id, options_for_select(opciones)) %>
   </div>
   <div class="field">
     <%= f.label :hora %><br />

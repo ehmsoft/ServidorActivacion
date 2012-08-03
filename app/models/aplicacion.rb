@@ -1,4 +1,4 @@
 class Aplicacion < ActiveRecord::Base
   attr_accessible :nombre
-    has_many :cuentas
+  has_many :cuentas
 end

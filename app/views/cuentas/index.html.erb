@@ -16,7 +16,7 @@
     <td><%= cuenta.correo %></td>
     <td><%= cuenta.pendiente %></td>
     <td><%= cuenta.total %></td>
-    <td><%= cuenta.aplicacion_id %></td>
+    <td><%= cuenta.aplicacion.nombre %></td>
     <td><%= link_to 'Show', cuenta %></td>
     <td><%= link_to 'Edit', edit_cuenta_path(cuenta) %></td>
     <td><%= link_to 'Destroy', cuenta, confirm: 'Are you sure?', method: :delete %></td>
