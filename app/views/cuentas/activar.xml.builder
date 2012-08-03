@@ -1,12 +1,13 @@
 xml.instruct!
-
-if @cuenta
-	xml.result "true"
-	xml.cuenta do
-		xml.correo @cuenta.correo
-		xml.pendiente @cuenta.pendiente
-		xml.total @cuenta.total
+xml.response do
+	if @cuenta
+		xml.result "true"
+		xml.cuenta do
+			xml.correo @cuenta.correo
+			xml.pendiente @cuenta.pendiente
+			xml.total @cuenta.total
+		end
+	else
+		xml.result "false"
 	end
-else
-	xml.result "false"
 end
