@@ -1,6 +1,9 @@
-<h1>Editing aplicacion</h1>
+<h1>Editar aplicación</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @aplicacion %> |
-<%= link_to 'Back', aplicaciones_path %>
+<div class="row">
+	<div class="span6 offset3">
+		<%= link_to 'Ver', @aplicacion, class:"btn btn-small btn-primary" %> |
+		<%= link_to 'Atrás', aplicaciones_path, class:"btn btn-small btn-primary" %>
+	</div>
+</div>
