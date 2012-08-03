@@ -1,29 +1,38 @@
-<h1>Listing cuentas</h1>
-
-<table>
-  <tr>
-    <th>Correo</th>
-    <th>Pendiente</th>
-    <th>Total</th>
-    <th>Aplicacion</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cuentas.each do |cuenta| %>
-  <tr>
-    <td><%= cuenta.correo %></td>
-    <td><%= cuenta.pendiente %></td>
-    <td><%= cuenta.total %></td>
-    <td><%= cuenta.aplicacion.nombre %></td>
-    <td><%= link_to 'Show', cuenta %></td>
-    <td><%= link_to 'Edit', edit_cuenta_path(cuenta) %></td>
-    <td><%= link_to 'Destroy', cuenta, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Listado de Cuentas</h1>
+<div class="row-fluid">
+	<div class="span12">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Correo</th>
+			<th>Pendiente</th>
+			<th>Total</th>
+			<th>Aplicación</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cuentas.each do |cuenta| %>
+		<tr>
+			<td><%= cuenta.correo %></td>
+			<td><%= cuenta.pendiente %></td>
+			<td><%= cuenta.total %></td>
+			<td><%= cuenta.aplicacion.nombre %></td>
+			<td><%= link_to 'Ver', cuenta, class: "btn" %></td>
+			<td><%= link_to 'Editar', edit_cuenta_path(cuenta), class: "btn" %></td>
+			<td><%= link_to 'Eliminar', cuenta, confirm: 'Segurito segurito?', method: :delete, class: "btn btn-danger" %></td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
-
+	</div>
+</div>
 <br />
+<div class="row-fluid">
+	<div class="span12">
 
-<%= link_to 'New Cuenta', new_cuenta_path %>
+		<%= link_to 'Nueva Cuenta', new_cuenta_path, class:"btn btn-small btn-primary" %>
+	</div>
+</div>

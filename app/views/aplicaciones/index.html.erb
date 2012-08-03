@@ -1,23 +1,33 @@
-<h1>Listing aplicaciones</h1>
+<h1>Listado de Aplicaciones</h1>
 
-<table>
+<div class="row-fluid">
+	<div class="span12">
+<table class="table table-striped">
+	<thead>
   <tr>
     <th>Nombre</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+</thead>
+	<tbody>
 <% @aplicaciones.each do |aplicacion| %>
   <tr>
     <td><%= aplicacion.nombre %></td>
-    <td><%= link_to 'Show', aplicacion %></td>
-    <td><%= link_to 'Edit', edit_aplicacion_path(aplicacion) %></td>
-    <td><%= link_to 'Destroy', aplicacion, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Ver', aplicacion, class: "btn" %></td>
+    <td><%= link_to 'Editar', edit_aplicacion_path(aplicacion), class: "btn" %></td>
+    <td><%= link_to 'Eliminar', aplicacion, confirm: 'Segurito segurito?', method: :delete, class: "btn btn-danger" %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
-
+	</div>
+</div>
 <br />
+<div class="row-fluid">
+	<div class="span12">
 
-<%= link_to 'New Aplicacion', new_aplicacion_path %>
+<%= link_to 'Nueva Aplicación', new_aplicacion_path, class:"btn btn-small btn-primary" %>
+	</div>
+</div>

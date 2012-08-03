@@ -1,6 +1,9 @@
-<h1>Listing usuarios</h1>
+<h1>Listado de Usuarios</h1>
 
-<table>
+<div class="row-fluid">
+	<div class="span12">
+<table class="table table-striped">
+	<thead>
   <tr>
     <th>Nombre</th>
     <th>Correo</th>
@@ -8,18 +11,25 @@
     <th></th>
     <th></th>
   </tr>
-
+</thead>
+	<tbody>
 <% @usuarios.each do |usuario| %>
   <tr>
     <td><%= usuario.nombre %></td>
     <td><%= usuario.correo %></td>
-    <td><%= link_to 'Show', usuario %></td>
-    <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-    <td><%= link_to 'Destroy', usuario, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Ver', usuario, class: "btn" %></td>
+    <td><%= link_to 'Editar', edit_usuario_path(usuario), class: "btn" %></td>
+    <td><%= link_to 'Eliminar', usuario, confirm: 'Segurito segurito?', method: :delete, class: "btn btn-danger" %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
-
+	</div>
+</div>
 <br />
+<div class="row-fluid">
+	<div class="span12">
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= link_to 'Nuevo Usuario', new_usuario_path, class:"btn btn-small btn-primary" %>
+	</div>
+</div>

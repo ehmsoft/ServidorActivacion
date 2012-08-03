@@ -9,7 +9,7 @@
 	<body>
 		<header class="navbar">
 			<div class="navbar-inner">			
-				<div class="container">
+				<div class="container-fluid">
 					<nav>
 						<ul class="nav">
 							<li><%= image_tag("logo.png", alt: "ehmSoftware Logo") %></li>
@@ -19,9 +19,18 @@
 							<li>
 								<%= link_to "Usuarios", usuarios_path, id: "navlink" %>
 							</li>
+							
+							<li>
+								<%= link_to "Aplicaciones", aplicaciones_path, id: "navlink" %>
+							</li>
+							
+							<li>
+								<%= link_to "Registro Actividades", registros_path, id: "navlink" %>
+							</li>
+							
 							<% if signed_in? %>
 							<li>
-								<%= link_to "Sign out", signout_path, method: "delete", id: "navlink" %>
+								<%= link_to "Cerrar sesión", signout_path, method: "delete", id: "navlink" %>
 							</li>
 
 							<% end %>

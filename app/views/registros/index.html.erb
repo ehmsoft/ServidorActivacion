@@ -1,29 +1,39 @@
-<h1>Listing registros</h1>
-
-<table>
-  <tr>
-    <th>Cuenta</th>
-    <th>Hora</th>
-    <th>Pendiente</th>
-    <th>Total</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @registros.each do |registro| %>
-  <tr>
-    <td><%= registro.cuenta.correo %></td>
-    <td><%= registro.hora %></td>
-    <td><%= registro.pendiente %></td>
-    <td><%= registro.total %></td>
-    <td><%= link_to 'Show', registro %></td>
-    <td><%= link_to 'Edit', edit_registro_path(registro) %></td>
-    <td><%= link_to 'Destroy', registro, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<h1>Registro de actividades</h1>
+<div class="row-fluid">
+	<div class="span12">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Cuenta</th>
+					<th>Hora</th>
+					<th>Pendiente</th>
+					<th>Total</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @registros.each do |registro| %>
+				<tr>
+					<td><%= registro.cuenta.correo %></td>
+					<td><%= registro.hora %></td>
+					<td><%= registro.pendiente %></td>
+					<td><%= registro.total %></td>
+					<td><%= link_to 'Ver', registro,class: "btn" %></td>
+					<td><%= link_to 'Editar', edit_registro_path(registro), class: "btn" %></td>
+					<td><%= link_to 'Eliminar', registro, confirm: 'Segurito segurito?', method: :delete, class: "btn btn-danger" %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
 <br />
+<div class="row-fluid">
+	<div class="span12">
 
-<%= link_to 'New Registro', new_registro_path %>
+		<%= link_to 'Nueva entrada de registro', new_registro_path, class:"btn btn-small btn-primary" %>
+
+	</div>
+</div>
