@@ -1,8 +1,9 @@
 <% provide(:title, "Iniciar sesión") %>
-<h1>Iniciar Sesión</h1>
+
 
 <div class="row">
   <div class="span6 offset3">
+  	<h1>Iniciar Sesión</h1>
     <%= form_for(:sesion, url: sesiones_path) do |f| %>
 
       <%= f.label :correo %>

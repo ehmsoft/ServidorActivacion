@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Servidor Activacion ehmSoftware</title>
+		<title>Servidor Activación ehmSoftware</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<% if signed_in? %>
-		<%= link_to "Sign out", signout_path, method: "delete" %>
+		<header class="navbar">
+			<div class="navbar-inner">			
+				<div class="container">
+					<nav>
+						<ul class="nav">
+							<li><%= image_tag("logo.png", alt: "ehmSoftware Logo") %></li>
+							<li>
+								<%= link_to "Cuentas", cuentas_path, id: "navlink" %>
+							</li>
+							<li>
+								<%= link_to "Usuarios", usuarios_path, id: "navlink" %>
+							</li>
+							<% if signed_in? %>
+							<li>
+								<%= link_to "Sign out", signout_path, method: "delete", id: "navlink" %>
+							</li>
 
-		<% end %>
-		<% flash.each do |key, value| %>
-			<div class="alert alert-<%= key %>">
-				<%= value %>
+							<% end %>
+						</ul>
+					</nav>
+				</div>
 			</div>
+		</header>
+
+		<% flash.each do |key, value| %>
+		<div class="alert alert-<%= key %>">
+			<%= value %>
+		</div>
 		<% end %>
 		<%= yield %>
 
