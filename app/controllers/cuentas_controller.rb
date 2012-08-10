@@ -92,13 +92,15 @@ class CuentasController < ApplicationController
   
   def activar
     @cuenta = Cuenta.where(correo: params[:correo], aplicacion_id: params[:aplicacion_id]).first
-    if @cuenta.pendiente > 0
-      @cuenta.pendiente = @cuenta.pendiente - 1
-      if @cuenta.save
-        Registro.create(cuenta_id: @cuenta.id, hora: DateTime.now(), pendiente: @cuenta.pendiente, total: @cuenta.total)
+    if @cuenta
+      if @cuenta.pendiente > 0
+        @cuenta.pendiente = @cuenta.pendiente - 1
+        if @cuenta.save
+          Registro.create(cuenta_id: @cuenta.id, hora: DateTime.now(), pendiente: @cuenta.pendiente, total: @cuenta.total)
+        end
+      else
+        @cuenta = nil
       end
-    else
-      @cuenta = nil
     end
     respond_to do |format|
       format.xml #activar.xml.builder
@@ -107,13 +109,15 @@ class CuentasController < ApplicationController
   
   def desactivar
     @cuenta = Cuenta.where(correo: params[:correo], aplicacion_id: params[:aplicacion_id]).first
-    if @cuenta.pendiente < @cuenta.total
-      @cuenta.pendiente = @cuenta.pendiente + 1
-      if @cuenta.save
-        Registro.create(cuenta_id: @cuenta.id, hora: DateTime.now(), pendiente: @cuenta.pendiente, total: @cuenta.total)
+     if @cuenta
+      if @cuenta.pendiente < @cuenta.total
+        @cuenta.pendiente = @cuenta.pendiente + 1
+        if @cuenta.save
+          Registro.create(cuenta_id: @cuenta.id, hora: DateTime.now(), pendiente: @cuenta.pendiente, total: @cuenta.total)
+        end
+      else
+        @cuenta = nil
       end
-    else
-      @cuenta = nil
     end
     respond_to do |format|
       format.xml {render 'activar'}
